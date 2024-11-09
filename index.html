@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Work - Tic Tak Toe</title>
+    <style>
+        body {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          margin: 0;
+          padding: 0;
+          height: 100vh;
+        }
+        .board{
+            display: grid;
+            grid-template-columns: repeat(3, 100px);
+            grid-gap: 10px;
+        }
+        .cell{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100px;
+            height: 100px;
+            border: 1px solid black;
+            font-size: 32px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="board"></div>
+    <script defer>
+
+        const winner = null;
+        const board = document.querySelector('.board')
+        const currentPlayer = 'X';
+        const arr = Array(9).fill(null)
+
+        // winner checker
+
+        function winner(index){
+
+            const winnerCondition = [
+            [0,1,2], [3,4,5], [6,7,8], //row
+            [0,3,6], [1,4,7], [2,5,8], //colume
+            [0,4,8], [2,4,6] // diagonal
+            ]
+
+            for(let condition of winnerCondition){
+                const [a,b,c] = condition;
+                if(cells[a] && cells[a] === cells[b] && cells[a] === cells[c]){
+                    return cells[a] ;
+                }
+            }
+
+            return null;
+        }
+
+
+
+
+
+    </script>
+</body>
+
+</html>
