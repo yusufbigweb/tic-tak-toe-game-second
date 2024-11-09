@@ -36,14 +36,15 @@
     <div class="board"></div>
     <script defer>
 
-        const winner = null;
+        let winner = null;
         const board = document.querySelector('.board')
-        const currentPlayer = 'X';
+        let currentPlayer = 'X';
         const arr = Array(9).fill(null)
 
+        console.log(winner)
         // winner checker
 
-        function winner(index){
+        function winner(){
 
             const winnerCondition = [
             [0,1,2], [3,4,5], [6,7,8], //row
@@ -61,7 +62,15 @@
             return null;
         }
 
+        // =========================================
 
+        function handleCellsClick(index){
+            if(winner || cells[index]) return;
+            cells[index] = currentPlayer;
+            render();
+
+            winner = checkWinner();
+        }
 
 
 
